@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="19.224" height="21.97" viewBox="0 0 19.224 21.97">
+  <g id="Group_17222" data-name="Group 17222" transform="translate(-0.2 -1)">
+    <g id="Group_17221" data-name="Group 17221" transform="translate(0.2 1)">
+      <rect id="Rectangle_2617" data-name="Rectangle 2617" width="16.27" height="12.572" rx="3" transform="translate(0 7.102)" fill="#e81c1c"/>
+      <g id="Group_17220" data-name="Group 17220" transform="translate(0)">
+        <path id="Icon_awesome-shopping-bag" data-name="Icon awesome-shopping-bag" d="M15.1,6.866V5.493a5.493,5.493,0,1,0-10.985,0V6.866H0V18.537A3.433,3.433,0,0,0,3.433,21.97H15.791a3.433,3.433,0,0,0,3.433-3.433V6.866ZM6.866,5.493a2.746,2.746,0,1,1,5.493,0V6.866H6.866Zm6.866,5.149a1.03,1.03,0,1,1,1.03-1.03A1.03,1.03,0,0,1,13.731,10.642Zm-8.239,0a1.03,1.03,0,1,1,1.03-1.03A1.03,1.03,0,0,1,5.493,10.642Z" fill="#373737"/>
+        <rect id="Rectangle_2618" data-name="Rectangle 2618" width="14.051" height="5.916" rx="2" transform="translate(2.435 13.358)" fill="#e81c1c"/>
+      </g>
+    </g>
+  </g>
+</svg>

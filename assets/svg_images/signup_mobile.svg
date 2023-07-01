@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="17.205" height="27.528" viewBox="0 0 17.205 27.528">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="17.205" height="27.528" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Repeat_Grid_4" data-name="Repeat Grid 4" clip-path="url(#clip-path)">
+    <g transform="translate(-62.35 -423.236)">
+      <path id="Icon_awesome-mobile-alt" data-name="Icon awesome-mobile-alt" d="M14.624,0H2.581A2.581,2.581,0,0,0,0,2.581V24.947a2.581,2.581,0,0,0,2.581,2.581H14.624a2.581,2.581,0,0,0,2.581-2.581V2.581A2.581,2.581,0,0,0,14.624,0ZM8.6,25.808a1.721,1.721,0,1,1,1.721-1.721A1.719,1.719,0,0,1,8.6,25.808ZM14.624,20a.647.647,0,0,1-.645.645H3.226A.647.647,0,0,1,2.581,20V3.226a.647.647,0,0,1,.645-.645H13.979a.647.647,0,0,1,.645.645Z" transform="translate(62.35 423.236)" fill="#34c6c8"/>
+    </g>
+  </g>
+</svg>
