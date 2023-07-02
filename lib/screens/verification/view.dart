@@ -4,10 +4,10 @@ import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart'
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:time_pe/screens/authentication/logic.dart';
+import 'package:time_pe/screens/verification/view2.dart';
 import 'package:time_pe/widgets/custom_appbar.dart';
 
 import '../../utils/colors.dart';
-import 'view2.dart';
 
 class VerificationSuccessfull extends StatelessWidget {
   const VerificationSuccessfull({Key? key}) : super(key: key);
@@ -20,6 +20,7 @@ class VerificationSuccessfull extends StatelessWidget {
       Get.to(VerificationToDashboard());
     });
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       body: SafeArea(
         child: Container(
           decoration: insetShadow.BoxDecoration(
@@ -66,75 +67,80 @@ class VerificationSuccessfull extends StatelessWidget {
                       topRight: Radius.circular(50),
                     ),
                   ),
-                  child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text('Documents submitted',
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.w500)),
-                        Text('Successfully!',
-                            style: TextStyle(
-                                fontSize: 28,
-                                fontWeight: FontWeight.bold,
-                                color: AppColors.kprimaryColor)),
-                        Spacer(),
-                            Lottie.asset('assets/lottie_animation/hello_animation.json'),
-
-                        SizedBox(
-                            height: 111,
-                            width: 144,
-                            child: Lottie.asset('assets/lottie_animation/searching.json')),
-                        Text('Please wait...60sec',
-                            style: TextStyle(
-                                fontSize: 14, fontWeight: FontWeight.normal)),
-                        Text('we are approving your credit limit',
-                            style: TextStyle(
-                                fontSize: 14, fontWeight: FontWeight.normal)),
-                        SizedBox(height: 30,),
-                        SizedBox(
-                          width: 206,
-                          height: 103,
-                          child: Stack(
-                            alignment: Alignment.center,
-                            children: [
-
-                            Lottie.asset('assets/lottie_animation/speed_meter.json'),
-                              Positioned(
-                                bottom: 15,
-                                child: Text('45 Sec',
-                                    style: TextStyle(
-                                        fontSize: 16,
-                                        color: AppColors.kprimaryColor,
-                                        fontWeight: FontWeight.w600)),
-                              )
-                            ],
+                  child: SingleChildScrollView(
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text('Documents submitted',
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.w500)),
+                          Text('Successfully!',
+                              style: TextStyle(
+                                  fontSize: 28,
+                                  fontWeight: FontWeight.bold,
+                                  color: AppColors.kprimaryColor)),
+                          // Spacer(),
+                          Lottie.asset(
+                              'assets/lottie_animation/hello_animation.json'),
+                          SizedBox(
+                              height: 100,
+                              width: 140,
+                              child: Lottie.asset(
+                                  'assets/lottie_animation/searching.json')),
+                          Text('Please wait...60sec',
+                              style: TextStyle(
+                                  fontSize: 14, fontWeight: FontWeight.normal)),
+                          Text('we are approving your credit limit',
+                              style: TextStyle(
+                                  fontSize: 14, fontWeight: FontWeight.normal)),
+                          SizedBox(
+                            height: 30,
                           ),
-                        ),
-                        Container(
-                            height: 40,
-                            child: Align(
-                              alignment: Alignment.bottomCenter,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    height: 27,
-                                    width: 27,
-                                    decoration: BoxDecoration(
-                                        color: Colors.transparent,
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                            'assets/images/unlock.png',
-                                          ),
-                                          // colorFilter: ColorFilter.mode(
-                                          //     Color(0xff707070), BlendMode.color),
-                                        )),
-                                  ),
-                                  Text('128 bit SSL Protection Secure')
-                                ],
-                              ),
-                            )),
-                      ]),
+                          SizedBox(
+                            width: 206,
+                            height: 103,
+                            child: Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                Lottie.asset(
+                                    'assets/lottie_animation/speed_meter.json'),
+                                Positioned(
+                                  bottom: 15,
+                                  child: Text('45 Sec',
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          color: AppColors.kprimaryColor,
+                                          fontWeight: FontWeight.w600)),
+                                )
+                              ],
+                            ),
+                          ),
+                          Container(
+                              height: 40,
+                              child: Align(
+                                alignment: Alignment.bottomCenter,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      height: 27,
+                                      width: 27,
+                                      decoration: BoxDecoration(
+                                          color: Colors.transparent,
+                                          image: DecorationImage(
+                                            image: AssetImage(
+                                              'assets/images/unlock.png',
+                                            ),
+                                            // colorFilter: ColorFilter.mode(
+                                            //     Color(0xff707070), BlendMode.color),
+                                          )),
+                                    ),
+                                    Text('128 bit SSL Protection Secure')
+                                  ],
+                                ),
+                              )),
+                        ]),
+                  ),
                 ),
               )
             ],

@@ -15,6 +15,7 @@ class Authentication extends StatelessWidget {
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       body: SafeArea(
         child: Container(
           decoration: insetShadow.BoxDecoration(
@@ -61,21 +62,91 @@ class Authentication extends StatelessWidget {
                       topRight: Radius.circular(50),
                     ),
                   ),
-                  child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Container(
-                          height: 151.6,
-                          width: 277.07,
-                          
-                          child: SvgPicture.asset('assets/svg_images/progress_steps.svg'),
-                        ),
-                        //Personal Info
-                        GestureDetector(
-                          onTap: () {
-                            Get.to(PersonalInfo());
-                          },
-                          child: Container(
+                  child: SingleChildScrollView(
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                            height: 151.6,
+                            width: 277.07,
+                            child: SvgPicture.asset(
+                                'assets/svg_images/progress_steps.svg'),
+                          ),
+                          //Personal Info
+                          GestureDetector(
+                            onTap: () {
+                              Get.to(PersonalInfo());
+                            },
+                            child: Container(
+                              margin: EdgeInsets.symmetric(vertical: 10),
+                              padding: EdgeInsets.symmetric(horizontal: 10),
+                              height: 59,
+                              width: MediaQuery.of(context).size.width,
+                              alignment: Alignment.center,
+                              decoration: insetShadow.BoxDecoration(
+                                borderRadius: BorderRadius.circular(18.0),
+                                color: Color(0xffEFF3FF),
+                                boxShadow: [
+                                  insetShadow.BoxShadow(
+                                      blurRadius: 3,
+                                      offset: -Offset(3, 3),
+                                      color: Colors.white,
+                                      inset: true),
+                                  insetShadow.BoxShadow(
+                                      blurRadius: 3,
+                                      offset: Offset(3, 3),
+                                      color: AppColors.greyInnerShadow,
+                                      inset: true),
+                                ],
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Expanded(
+                                    child: TextField(
+                                      enabled: false,
+                                      decoration: InputDecoration(
+                                          prefixIcon: Icon(Icons.person),
+                                          border: InputBorder.none,
+                                          hintStyle: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 13,
+                                              fontWeight: FontWeight.w500),
+                                          hintText: 'Personal Info'),
+                                    ),
+                                  ),
+                                  Container(
+                                    height: 40,
+                                    width: 40,
+                                    decoration: insetShadow.BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: Color(0xff8A8A8A),
+                                        boxShadow: [
+                                          insetShadow.BoxShadow(
+                                              blurRadius: 1,
+                                              offset: -Offset(1, 1),
+                                              color: Colors.white,
+                                              inset: true),
+                                          insetShadow.BoxShadow(
+                                              blurRadius: 3,
+                                              offset: Offset(3, 3),
+                                              color: Color(0xff707070),
+                                              inset: true),
+                                        ]),
+                                    child: Icon(
+                                      Icons.arrow_forward_ios,
+                                      color: Colors.white,
+                                      size: 18,
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          //Face Authentication
+                          Container(
                             margin: EdgeInsets.symmetric(vertical: 10),
                             padding: EdgeInsets.symmetric(horizontal: 10),
                             height: 59,
@@ -83,7 +154,7 @@ class Authentication extends StatelessWidget {
                             alignment: Alignment.center,
                             decoration: insetShadow.BoxDecoration(
                               borderRadius: BorderRadius.circular(18.0),
-                              color: Color(0xffEFF3FF),
+                              color: AppColors.background,
                               boxShadow: [
                                 insetShadow.BoxShadow(
                                     blurRadius: 3,
@@ -104,7 +175,6 @@ class Authentication extends StatelessWidget {
                               children: [
                                 Expanded(
                                   child: TextField(
-                                    enabled: false,
                                     decoration: InputDecoration(
                                         prefixIcon: Icon(Icons.person),
                                         border: InputBorder.none,
@@ -112,7 +182,7 @@ class Authentication extends StatelessWidget {
                                             color: Colors.black,
                                             fontSize: 13,
                                             fontWeight: FontWeight.w500),
-                                        hintText: 'Personal Info'),
+                                        hintText: 'Face Authentication'),
                                   ),
                                 ),
                                 Container(
@@ -130,7 +200,7 @@ class Authentication extends StatelessWidget {
                                         insetShadow.BoxShadow(
                                             blurRadius: 3,
                                             offset: Offset(3, 3),
-                                            color: Color(0xff707070),
+                                            color: Color(0xff00000066),
                                             inset: true),
                                       ]),
                                   child: Icon(
@@ -142,145 +212,74 @@ class Authentication extends StatelessWidget {
                               ],
                             ),
                           ),
-                        ),
-                        //Face Authentication
-                        Container(
-                          margin: EdgeInsets.symmetric(vertical: 10),
-                          padding: EdgeInsets.symmetric(horizontal: 10),
-                          height: 59,
-                          width: MediaQuery.of(context).size.width,
-                          alignment: Alignment.center,
-                          decoration: insetShadow.BoxDecoration(
-                            borderRadius: BorderRadius.circular(18.0),
-                            color: AppColors.background,
-                            boxShadow: [
-                              insetShadow.BoxShadow(
-                                  blurRadius: 3,
-                                  offset: -Offset(3, 3),
-                                  color: Colors.white,
-                                  inset: true),
-                              insetShadow.BoxShadow(
-                                  blurRadius: 3,
-                                  offset: Offset(3, 3),
-                                  color: AppColors.greyInnerShadow,
-                                  inset: true),
-                            ],
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Expanded(
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                      prefixIcon: Icon(Icons.person),
-                                      border: InputBorder.none,
-                                      hintStyle: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 13,
-                                          fontWeight: FontWeight.w500),
-                                      hintText: 'Face Authentication'),
+                          //Sub Accounts
+                          Container(
+                            margin: EdgeInsets.symmetric(vertical: 10),
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            height: 59,
+                            width: MediaQuery.of(context).size.width,
+                            alignment: Alignment.center,
+                            decoration: insetShadow.BoxDecoration(
+                              borderRadius: BorderRadius.circular(18.0),
+                              color: AppColors.background,
+                              boxShadow: [
+                                insetShadow.BoxShadow(
+                                    blurRadius: 3,
+                                    offset: -Offset(3, 3),
+                                    color: Colors.white,
+                                    inset: true),
+                                insetShadow.BoxShadow(
+                                    blurRadius: 3,
+                                    offset: Offset(3, 3),
+                                    color: AppColors.greyInnerShadow,
+                                    inset: true),
+                              ],
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Expanded(
+                                  child: TextField(
+                                    decoration: InputDecoration(
+                                        prefixIcon: Icon(Icons.person),
+                                        border: InputBorder.none,
+                                        hintStyle: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 13,
+                                            fontWeight: FontWeight.w500),
+                                        hintText: 'Sub Accounts'),
+                                  ),
                                 ),
-                              ),
-                              Container(
-                                height: 40,
-                                width: 40,
-                                decoration: insetShadow.BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Color(0xff8A8A8A),
-                                    boxShadow: [
-                                      insetShadow.BoxShadow(
-                                          blurRadius: 1,
-                                          offset: -Offset(1, 1),
-                                          color: Colors.white,
-                                          inset: true),
-                                      insetShadow.BoxShadow(
-                                          blurRadius: 3,
-                                          offset: Offset(3, 3),
-                                          color: Color(0xff00000066),
-                                          inset: true),
-                                    ]),
-                                child: Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: Colors.white,
-                                  size: 18,
-                                ),
-                              )
-                            ],
+                                Container(
+                                  height: 40,
+                                  width: 40,
+                                  decoration: insetShadow.BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: Color(0xff8A8A8A),
+                                      boxShadow: [
+                                        insetShadow.BoxShadow(
+                                            blurRadius: 1,
+                                            offset: -Offset(1, 1),
+                                            color: Colors.white,
+                                            inset: true),
+                                        insetShadow.BoxShadow(
+                                            blurRadius: 3,
+                                            offset: Offset(3, 3),
+                                            color: Color(0xff00000066),
+                                            inset: true),
+                                      ]),
+                                  child: Icon(
+                                    Icons.arrow_forward_ios,
+                                    color: Colors.white,
+                                    size: 18,
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
-                        ),
-                        //Sub Accounts
-                        Container(
-                          margin: EdgeInsets.symmetric(vertical: 10),
-                          padding: EdgeInsets.symmetric(horizontal: 10),
-                          height: 59,
-                          width: MediaQuery.of(context).size.width,
-                          alignment: Alignment.center,
-                          decoration: insetShadow.BoxDecoration(
-                            borderRadius: BorderRadius.circular(18.0),
-                            color: AppColors.background,
-                            boxShadow: [
-                              insetShadow.BoxShadow(
-                                  blurRadius: 3,
-                                  offset: -Offset(3, 3),
-                                  color: Colors.white,
-                                  inset: true),
-                              insetShadow.BoxShadow(
-                                  blurRadius: 3,
-                                  offset: Offset(3, 3),
-                                  color: AppColors.greyInnerShadow,
-                                  inset: true),
-                            ],
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Expanded(
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                      prefixIcon: Icon(Icons.person),
-                                      border: InputBorder.none,
-                                      hintStyle: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 13,
-                                          fontWeight: FontWeight.w500),
-                                      hintText: 'Sub Accounts'),
-                                ),
-                              ),
-                              Container(
-                                height: 40,
-                                width: 40,
-                                decoration: insetShadow.BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Color(0xff8A8A8A),
-                                    boxShadow: [
-                                      insetShadow.BoxShadow(
-                                          blurRadius: 1,
-                                          offset: -Offset(1, 1),
-                                          color: Colors.white,
-                                          inset: true),
-                                      insetShadow.BoxShadow(
-                                          blurRadius: 3,
-                                          offset: Offset(3, 3),
-                                          color: Color(0xff00000066),
-                                          inset: true),
-                                    ]),
-                                child: Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: Colors.white,
-                                  size: 18,
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                            child: Align(
-                          alignment: Alignment.bottomCenter,
-                          child: Row(
+                          Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Container(
@@ -299,8 +298,8 @@ class Authentication extends StatelessWidget {
                               Text('128 bit SSL Protection Secure')
                             ],
                           ),
-                        )),
-                      ]),
+                        ]),
+                  ),
                 ),
               )
             ],

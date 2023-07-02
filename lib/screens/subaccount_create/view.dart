@@ -5,7 +5,6 @@ import 'package:time_pe/screens/home/view.dart';
 import 'package:time_pe/screens/profile/view.dart';
 import 'package:time_pe/screens/qr_scanner/view.dart';
 import 'package:time_pe/screens/transaction_history/view.dart';
-import 'package:time_pe/screens/transfer/transfer.dart';
 import 'package:time_pe/utils/colors.dart';
 import 'package:flutter_inset_box_shadow/flutter_inset_box_shadow.dart'
     as insetShadow;
@@ -26,8 +25,8 @@ class SubAccountCreate extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.all(20),
-          child: CustomScrollView(slivers: [
-            Column(
+          child: SingleChildScrollView(
+            child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -300,7 +299,7 @@ class SubAccountCreate extends StatelessWidget {
                     ),
                   ),
                 ]),
-          ]),
+          ),
         ),
       ),
     );

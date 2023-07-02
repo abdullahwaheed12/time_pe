@@ -1,6 +1,7 @@
 import 'package:contacts_service/contacts_service.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:get/get.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:time_pe/screens/add_bank_account/view.dart';
 import 'package:time_pe/screens/bank_transfer/add_upi_id.dart';
 import 'package:time_pe/screens/home/view.dart';
@@ -21,6 +22,9 @@ class BankTransfer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
+    Future.delayed(Duration(seconds: 1)).then((value) {
+      Permission.contacts.request();
+    });
     return Scaffold(
       backgroundColor: AppColors.background,
       body: SafeArea(
@@ -271,77 +275,83 @@ class UPI extends StatelessWidget {
       return InkWell(
         onTap: () {},
         child: Column(
-      children: [
-        SizedBox(height: 15,),
-        Row(
           children: [
-            Container(
-                alignment: Alignment.center,
-                height: 56,
-                width: 56,
-                decoration: insetShadow.BoxDecoration(
-                  color: AppColors.kprimaryColor,
-                  shape: BoxShape.circle,
-                  boxShadow: [
-                    insetShadow.BoxShadow(
-                        blurRadius: 6,
-                        offset: Offset(3, 3),
-                        color: Colors.black.withOpacity(0.7),
-                        inset: true)
+            SizedBox(
+              height: 15,
+            ),
+            Row(
+              children: [
+                Container(
+                    alignment: Alignment.center,
+                    height: 56,
+                    width: 56,
+                    decoration: insetShadow.BoxDecoration(
+                      color: AppColors.kprimaryColor,
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        insetShadow.BoxShadow(
+                            blurRadius: 6,
+                            offset: Offset(3, 3),
+                            color: Colors.black.withOpacity(0.7),
+                            inset: true)
+                      ],
+                    ),
+                    child: Text(
+                      'KR',
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                          color: AppColors.white),
+                    )),
+                SizedBox(
+                  width: 10,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Kishor Reddy',
+                      style: TextStyle(
+                          fontSize: 13, fontWeight: FontWeight.normal),
+                    ),
+                    Text(
+                      'XXXXXX55689',
+                      style: TextStyle(fontSize: 11, color: Color(0xff707070)),
+                    ),
                   ],
                 ),
-                child: Text('KR',style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600,color: AppColors.white),)),
-            SizedBox(
-              width: 10,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Kishor Reddy',
-                  style: TextStyle(
-                      fontSize: 13, fontWeight: FontWeight.normal),
-                ),
-                Text(
-                  'XXXXXX55689',
-                  style:
-                      TextStyle(fontSize: 11, color: Color(0xff707070)),
-                ),
+                Spacer(),
+                Container(
+                  child: Icon(Icons.more_vert, size: 30),
+                )
               ],
             ),
-            Spacer(),
-            Container(
-              child: Icon(Icons.more_vert, size: 30),
-            )
+            SizedBox(
+              height: 30,
+            ),
+            SizedBox(
+              width: width,
+              height: 2,
+              child: ListView.builder(
+                  itemCount: 20,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (contaxt, index) {
+                    return Container(
+                      height: 2,
+                      width: 10,
+                      color: Color(
+                        0xff707070,
+                      ),
+                      margin: EdgeInsets.symmetric(horizontal: 5),
+                    );
+                  }),
+            ),
+            SizedBox(
+              height: 20,
+            ),
           ],
         ),
-        SizedBox(
-          height: 30,
-        ),
-        SizedBox(
-          width: width,
-          height: 2,
-          child: ListView.builder(
-              itemCount: 20,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (contaxt, index) {
-                return Container(
-                  height: 2,
-                  width: 10,
-                  color: Color(
-                    0xff707070,
-                  ),
-                  margin: EdgeInsets.symmetric(horizontal: 5),
-                );
-              }),
-        ),
-        SizedBox(
-          height: 20,
-        ),
-      ],
-        ),
       );
-    
     } else {
       return Container(
         child: Column(
@@ -350,7 +360,7 @@ class UPI extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               children: [
                 SizedBox(
-                    height: 290,
+                    height: 170,
                     width: 290,
                     child: Image.asset('assets/images/empty_upi.png')),
                 Positioned(
@@ -378,88 +388,92 @@ class UPI extends StatelessWidget {
 }
 
 class MyBankAccounts extends StatelessWidget {
- var isUPIEmpty=false;
+  var isUPIEmpty = false;
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
- if (isUPIEmpty) {
+    if (isUPIEmpty) {
       return InkWell(
         onTap: () {},
         child: Column(
-      children: [
-        SizedBox(height: 15,),
-        Row(
           children: [
-            Container(
-                alignment: Alignment.center,
-                height: 56,
-                width: 56,
-                decoration: insetShadow.BoxDecoration(
-                  color: AppColors.kprimaryColor,
-                  shape: BoxShape.circle,
-                  boxShadow: [
-                    insetShadow.BoxShadow(
-                        blurRadius: 6,
-                        offset: Offset(3, 3),
-                        color: Colors.black.withOpacity(0.7),
-                        inset: true)
+            SizedBox(
+              height: 15,
+            ),
+            Row(
+              children: [
+                Container(
+                    alignment: Alignment.center,
+                    height: 56,
+                    width: 56,
+                    decoration: insetShadow.BoxDecoration(
+                      color: AppColors.kprimaryColor,
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        insetShadow.BoxShadow(
+                            blurRadius: 6,
+                            offset: Offset(3, 3),
+                            color: Colors.black.withOpacity(0.7),
+                            inset: true)
+                      ],
+                    ),
+                    child: Text(
+                      'KR',
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                          color: AppColors.white),
+                    )),
+                SizedBox(
+                  width: 10,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Kishor Reddy',
+                      style: TextStyle(
+                          fontSize: 13, fontWeight: FontWeight.normal),
+                    ),
+                    Text(
+                      'XXXXXX55689',
+                      style: TextStyle(fontSize: 11, color: Color(0xff707070)),
+                    ),
                   ],
                 ),
-                child: Text('KR',style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600,color: AppColors.white),)),
-            SizedBox(
-              width: 10,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Kishor Reddy',
-                  style: TextStyle(
-                      fontSize: 13, fontWeight: FontWeight.normal),
-                ),
-                Text(
-                  'XXXXXX55689',
-                  style:
-                      TextStyle(fontSize: 11, color: Color(0xff707070)),
-                ),
+                Spacer(),
+                Container(
+                  child: Icon(Icons.more_vert, size: 30),
+                )
               ],
             ),
-            Spacer(),
-            Container(
-              child: Icon(Icons.more_vert, size: 30),
-            )
+            SizedBox(
+              height: 30,
+            ),
+            SizedBox(
+              width: width,
+              height: 2,
+              child: ListView.builder(
+                  itemCount: 20,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (contaxt, index) {
+                    return Container(
+                      height: 2,
+                      width: 10,
+                      color: Color(
+                        0xff707070,
+                      ),
+                      margin: EdgeInsets.symmetric(horizontal: 5),
+                    );
+                  }),
+            ),
+            SizedBox(
+              height: 20,
+            ),
           ],
         ),
-        SizedBox(
-          height: 30,
-        ),
-        SizedBox(
-          width: width,
-          height: 2,
-          child: ListView.builder(
-              itemCount: 20,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (contaxt, index) {
-                return Container(
-                  height: 2,
-                  width: 10,
-                  color: Color(
-                    0xff707070,
-                  ),
-                  margin: EdgeInsets.symmetric(horizontal: 5),
-                );
-              }),
-        ),
-        SizedBox(
-          height: 20,
-        ),
-      ],
-        ),
       );
-    
-    }else{
-
-    }
+    } else {}
     return Column(
       children: [
         Expanded(
@@ -558,6 +572,5 @@ class MyBankAccounts extends StatelessWidget {
         ),
       ],
     );
-  
   }
 }

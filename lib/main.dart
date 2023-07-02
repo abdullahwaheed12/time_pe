@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
           primaryColor: Color(0xff34C6C8),
           colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
               .copyWith(background: Color(0xffEBEFF2))),
-      home: BankTransfer(),
+      home: VerificationSuccessfull(),
     );
   }
 }

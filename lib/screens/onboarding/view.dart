@@ -1,4 +1,3 @@
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -14,9 +13,8 @@ class OnBoarding extends StatefulWidget {
   State<OnBoarding> createState() => _OnBoardingState();
 }
 
-class _OnBoardingState extends State<OnBoarding> with TickerProviderStateMixin{
-
-   late AnimationController _animationController;
+class _OnBoardingState extends State<OnBoarding> with TickerProviderStateMixin {
+  late AnimationController _animationController;
   late Animation<double> _animation;
   @override
   void initState() {
@@ -26,11 +24,10 @@ class _OnBoardingState extends State<OnBoarding> with TickerProviderStateMixin{
     _animation = Tween<double>(begin: 1, end: 1).animate(_animationController);
     _animationController.forward();
     _animationController.addListener(() {
-      setState(() {
-        
-      });
-     });
+      setState(() {});
+    });
   }
+
   int _current = 0;
 
   final CarouselController _controller = CarouselController();
@@ -169,15 +166,18 @@ class _OnBoardingState extends State<OnBoarding> with TickerProviderStateMixin{
                   SizedBox(
                     height: 10,
                   ),
-                  Button1(
-                      onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(
-                          builder: (context) {
-                            return Login();
-                          },
-                        ));
-                      },
-                      text: 'Get Started')
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Button1(
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(
+                            builder: (context) {
+                              return Login();
+                            },
+                          ));
+                        },
+                        text: 'Get Started'),
+                  )
                 ],
               ),
             ],
